@@ -1,0 +1,25 @@
+# WordPress Ignore Rules
+wp-config.php
+wp-content/uploads/
+!wp-content/uploads/eduforge-logs/.gitkeep
+wp-content/upgrade/
+wp-content/cache/
+wp-content/backup-db/
+*.log
+.env
+.env.local
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+vendor/
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+desktop.ini
