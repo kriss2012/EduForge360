@@ -1,0 +1,48 @@
+/**
+ * EduForge Core CSS
+ */
+
+:root {
+	--eduforge-primary: #2563eb;
+	--eduforge-primary-hover: #1d4ed8;
+	--eduforge-dark: #0f172a;
+	--eduforge-success: #10b981;
+	--eduforge-warning: #f59e0b;
+	--eduforge-danger: #ef4444;
+	--eduforge-border: #e2e8f0;
+	--eduforge-bg: #f8fafc;
+}
+
+.eduforge-courses-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 24px;
+	margin: 24px 0;
+}
+
+.eduforge-badge-free {
+	background: #ecfdf5;
+	color: #059669;
+	font-weight: 700;
+	font-size: 12px;
+	padding: 3px 8px;
+	border-radius: 4px;
+	display: inline-block;
+}
+
+.eduforge-toast {
+	position: fixed;
+	bottom: 24px;
+	right: 24px;
+	background: #0f172a;
+	color: #ffffff;
+	padding: 14px 22px;
+	border-radius: 8px;
+	font-size: 14px;
+	box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+	z-index: 999999;
+	transition: all 0.3s ease;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
