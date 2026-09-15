@@ -113,39 +113,39 @@ EduForge360 employs an enterprise multi-tier architecture where each operational
 
 ```mermaid
 flowchart TD
-    subgraph Client_Space [Client Space]
-        Browser([Web Browser / Mobile Client])
+    subgraph Client_Space ["Client Space"]
+        Browser(["Web Browser / Mobile Client"])
     end
 
-    subgraph Theme_Boundary [Theme Boundary: edu-forge-theme]
-        T_Front[front-page.php (15 Sections)]
-        T_Player[single-lessons.php (Course Player)]
-        T_Dash[page-dashboard.php (SaaS Portal)]
-        T_Resume[page-resume-builder.php]
-        T_Catalog[archive-courses.php]
-        T_Tokens[style.css (CSS Variables)]
+    subgraph Theme_Boundary ["Theme Boundary: edu-forge-theme"]
+        T_Front["front-page.php (15 Sections)"]
+        T_Player["single-lessons.php (Course Player)"]
+        T_Dash["page-dashboard.php (SaaS Portal)"]
+        T_Resume["page-resume-builder.php (Resume Builder)"]
+        T_Catalog["archive-courses.php (Course Catalog)"]
+        T_Tokens["style.css (CSS Variables & Tokens)"]
     end
 
-    subgraph Plugin_Boundary [Core Business Engine: edu-forge-core]
-        P_Init[edu-forge-core.php]
-        P_DB[class-database.php]
-        P_Roles[class-roles.php]
-        P_CPT[class-post-types.php]
-        P_REST[class-rest-api.php]
-        P_AJAX[class-ajax-handler.php]
-        P_LMS[class-course-manager.php]
-        P_Quiz[class-quiz-manager.php]
-        P_Cert[class-certificate-manager.php]
-        P_Skill[class-skill-manager.php]
-        P_Career[class-career-manager.php]
-        P_Placement[class-placement-manager.php]
-        P_Logger[class-logger.php]
+    subgraph Plugin_Boundary ["Core Business Engine: edu-forge-core"]
+        P_Init["edu-forge-core.php"]
+        P_DB["class-database.php"]
+        P_Roles["class-roles.php"]
+        P_CPT["class-post-types.php"]
+        P_REST["class-rest-api.php"]
+        P_AJAX["class-ajax-handler.php"]
+        P_LMS["class-course-manager.php"]
+        P_Quiz["class-quiz-manager.php"]
+        P_Cert["class-certificate-manager.php"]
+        P_Skill["class-skill-manager.php"]
+        P_Career["class-career-manager.php"]
+        P_Placement["class-placement-manager.php"]
+        P_Logger["class-logger.php"]
     end
 
-    subgraph Storage_Boundary [Storage Layer]
-        MySQL_Core[(WP Core Tables)]
-        MySQL_Custom[(6 Custom Indexed Tables)]
-        Redis[(Redis Cache)]
+    subgraph Storage_Boundary ["Storage Layer"]
+        MySQL_Core[("WP Core Tables")]
+        MySQL_Custom[("6 Custom Indexed Tables")]
+        Redis[("Redis Cache")]
     end
 
     Browser -->|Renders Visuals| Theme_Boundary
