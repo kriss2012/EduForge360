@@ -17,41 +17,41 @@ In **EduForge360**:
 
 ```mermaid
 graph TD
-    User([Student / Faculty / Recruiter]) -->|HTTPS Requests| Browser([Modern Web Browser / Mobile])
-    Browser -->|Static Assets / CDN| WebServer([Nginx / Apache Web Server])
-    WebServer -->|PHP 8.2 FastCGI| WordPressCore([WordPress 6.5+ Core])
+    User(["Student / Faculty / Recruiter"]) -->|HTTPS Requests| Browser(["Modern Web Browser / Mobile"])
+    Browser -->|Static Assets / CDN| WebServer(["Nginx / Apache Web Server"])
+    WebServer -->|PHP 8.2 FastCGI| WordPressCore(["WordPress 6.5+ Core"])
     
-    subgraph Presentation_Layer [Presentation Layer]
-        WordPressCore --> CustomTheme([edu-forge-theme])
-        CustomTheme --> Templates([front-page / player / dashboard / catalogs])
+    subgraph Presentation_Layer ["Presentation Layer"]
+        WordPressCore --> CustomTheme(["edu-forge-theme"])
+        CustomTheme --> Templates(["front-page / player / dashboard / catalogs"])
     end
 
-    subgraph Business_Logic_Engine [Business Logic Engine]
-        WordPressCore --> CorePlugin([edu-forge-core])
-        CorePlugin --> CourseMgr[Class Course Manager]
-        CorePlugin --> QuizEngine[Class Quiz Engine]
-        CorePlugin --> CertLedger[Class Certificate Ledger]
-        CorePlugin --> CareerReadiness[Class Career & Placement Manager]
-        CorePlugin --> SkillMatrix[Class Skill Diagnostics Engine]
-        CorePlugin --> CronJobs[WP-Cron Scheduled Tasks]
+    subgraph Business_Logic_Engine ["Business Logic Engine"]
+        WordPressCore --> CorePlugin(["edu-forge-core"])
+        CorePlugin --> CourseMgr["Class Course Manager"]
+        CorePlugin --> QuizEngine["Class Quiz Engine"]
+        CorePlugin --> CertLedger["Class Certificate Ledger"]
+        CorePlugin --> CareerReadiness["Class Career & Placement Manager"]
+        CorePlugin --> SkillMatrix["Class Skill Diagnostics Engine"]
+        CorePlugin --> CronJobs["WP-Cron Scheduled Tasks"]
     end
 
-    subgraph API_and_Network [API & Data Ingestion]
-        Browser -->|Async AJAX| AJAXHandler[class-ajax-handler.php]
-        Browser -->|JSON REST Calls| RESTEndpoints[/wp-json/eduforge/v1/...]
+    subgraph API_and_Network ["API & Data Ingestion"]
+        Browser -->|Async AJAX| AJAXHandler["class-ajax-handler.php"]
+        Browser -->|JSON REST Calls| RESTEndpoints["/wp-json/eduforge/v1/..."]
         AJAXHandler --> CorePlugin
         RESTEndpoints --> CorePlugin
     end
 
-    subgraph Data_Storage_Layer [Storage & Persistence]
-        CorePlugin -->|Prepared $wpdb Queries| MySQL[(MySQL 8.0 Custom Tables)]
-        WordPressCore -->|Transient Caching| RedisCache[(Redis In-Memory Cache)]
-        CorePlugin -->|Secure Uploads / Scoured Logs| FileStorage[(Uploads & eduforge-logs)]
+    subgraph Data_Storage_Layer ["Storage & Persistence"]
+        CorePlugin -->|Prepared $wpdb Queries| MySQL[("MySQL 8.0 Custom Tables")]
+        WordPressCore -->|Transient Caching| RedisCache[("Redis In-Memory Cache")]
+        CorePlugin -->|Secure Uploads / Scoured Logs| FileStorage[("Uploads & eduforge-logs")]
     end
 
-    subgraph ECommerce_and_Payments [Commerce Integration]
-        CorePlugin -->|Auto-Enrollment Hooks| WooCommerce([WooCommerce Engine])
-        WooCommerce -->|Webhook Signatures| PaymentGateways([Razorpay / Cashfree / Stripe])
+    subgraph ECommerce_and_Payments ["Commerce Integration"]
+        CorePlugin -->|Auto-Enrollment Hooks| WooCommerce(["WooCommerce Engine"])
+        WooCommerce -->|Webhook Signatures| PaymentGateways(["Razorpay / Cashfree / Stripe"])
     end
 ```
 
