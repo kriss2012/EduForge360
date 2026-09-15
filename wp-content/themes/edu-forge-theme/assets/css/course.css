@@ -1,0 +1,35 @@
+/**
+ * EduForge Course Player CSS
+ */
+
+.course-player-layout {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.player-main {
+	transition: all var(--transition-normal);
+}
+
+.player-sidebar {
+	position: sticky;
+	top: 75px;
+	height: calc(100vh - 75px);
+}
+
+.sidebar-lesson-list a:hover {
+	border-color: var(--primary) !important;
+	color: var(--primary) !important;
+}
+
+@media (max-width: 991px) {
+	.course-player-layout {
+		flex-direction: column;
+	}
+	.player-sidebar {
+		width: 100% !important;
+		height: auto !important;
+		position: static !important;
+		border-left: none !important;
+		border-top: 1px solid #e2e8f0;
+	}
+}

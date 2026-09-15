@@ -1,0 +1,41 @@
+/**
+ * EduForge SaaS Dashboard CSS
+ */
+
+.saas-dashboard-wrapper {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.dashboard-sidebar {
+	border-right: 1px solid #1e293b;
+	transition: all var(--transition-normal);
+}
+
+.dashboard-nav-links a:hover {
+	background: #1e293b;
+	color: #38bdf8 !important;
+}
+
+.dash-tab-panel {
+	animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+	from { opacity: 0; transform: translateY(6px); }
+	to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 991px) {
+	.saas-dashboard-wrapper {
+		flex-direction: column;
+	}
+	.dashboard-sidebar {
+		width: 100% !important;
+		padding: 15px !important;
+	}
+	.dashboard-nav-links {
+		flex-direction: row !important;
+		flex-wrap: wrap !important;
+		gap: 6px !important;
+	}
+}

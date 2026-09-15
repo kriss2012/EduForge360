@@ -1,0 +1,142 @@
+/**
+ * EduForge360 Responsive Stylesheet
+ * Tested for: 320px, 375px, 390px, 414px, 768px, 1024px, 1280px, 1440px, 1920px
+ */
+
+/* ==========================================================================
+   TABLET & SMALL LAPTOP (<= 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+	.menu-toggle {
+		display: block;
+	}
+
+	.hamburger-icon {
+		display: block;
+		width: 24px;
+		height: 2px;
+		background: var(--secondary);
+		position: relative;
+		transition: all 0.3s;
+	}
+
+	.hamburger-icon::before,
+	.hamburger-icon::after {
+		content: '';
+		position: absolute;
+		width: 24px;
+		height: 2px;
+		background: var(--secondary);
+		left: 0;
+		transition: all 0.3s;
+	}
+
+	.hamburger-icon::before { top: -6px; }
+	.hamburger-icon::after { bottom: -6px; }
+
+	.main-navigation .nav-menu {
+		position: fixed;
+		top: 75px;
+		left: -100%;
+		width: 280px;
+		height: calc(100vh - 75px);
+		background: #ffffff;
+		flex-direction: column;
+		padding: 30px 20px;
+		box-shadow: var(--shadow-xl);
+		transition: left var(--transition-normal);
+		z-index: 9999;
+	}
+
+	.main-navigation.is-active .nav-menu {
+		left: 0;
+	}
+
+	.hero-container {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+
+	.split-layout {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+
+	.footer-grid {
+		grid-template-columns: 1fr 1fr;
+		gap: 30px;
+	}
+}
+
+/* ==========================================================================
+   TABLETS & LARGE PHONES (<= 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+	.mobile-bottom-nav {
+		display: flex;
+	}
+
+	body {
+		padding-bottom: 65px; /* Space for mobile floating nav */
+	}
+
+	.hero-title {
+		font-size: 34px;
+	}
+
+	.hero-subtitle {
+		font-size: 16px;
+	}
+
+	.stats-inner {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 16px;
+	}
+
+	.section {
+		padding: 50px 0;
+	}
+
+	.section-title {
+		font-size: 26px;
+	}
+
+	.section-header-split {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 16px;
+	}
+
+	.footer-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.header-actions .btn {
+		display: none;
+	}
+}
+
+/* ==========================================================================
+   MOBILE PHONES (320px - 414px)
+   ========================================================================== */
+@media (max-width: 480px) {
+	.container {
+		padding: 0 16px;
+	}
+
+	.hero-title {
+		font-size: 28px;
+	}
+
+	.stat-number {
+		font-size: 22px;
+	}
+
+	.site-tagline {
+		display: none;
+	}
+
+	.course-detail-header {
+		padding: 30px 0;
+	}
+}
