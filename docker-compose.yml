@@ -1,0 +1,78 @@
+services:
+  wordpress:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: eduforge_wordpress
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      WORDPRESS_DB_HOST: mysql:3306
+      WORDPRESS_DB_USER: ${DB_USER:-eduforge_user}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD:-eduforge_secure_pass_2026}
+      WORDPRESS_DB_NAME: ${DB_NAME:-eduforge360_db}
+      WORDPRESS_TABLE_PREFIX: ${DB_TABLE_PREFIX:-wp_}
+      WORDPRESS_DEBUG: 1
+    volumes:
+      - ./wp-content/themes/edu-forge-theme:/var/www/html/wp-content/themes/edu-forge-theme
+      - ./wp-content/plugins/edu-forge-core:/var/www/html/wp-content/plugins/edu-forge-core
+      - ./docker/uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+      - wordpress_data:/var/www/html
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - eduforge_net
+
+  mysql:
+    image: mysql:8.0
+    container_name: eduforge_mysql
+    restart: unless-stopped
+    command: '--default-authentication-plugin=mysql_native_password'
+    environment:
+      MYSQL_DATABASE: ${DB_NAME:-eduforge360_db}
+      MYSQL_USER: ${DB_USER:-eduforge_user}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-eduforge_secure_pass_2026}
+      MYSQL_ROOT_PASSWORD: root_eduforge_pass_2026
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - eduforge_net
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: eduforge_phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: ${DB_USER:-eduforge_user}
+      PMA_PASSWORD: ${DB_PASSWORD:-eduforge_secure_pass_2026}
+    depends_on:
+      - mysql
+    networks:
+      - eduforge_net
+
+  redis:
+    image: redis:7-alpine
+    container_name: eduforge_redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - eduforge_net
+
+volumes:
+  wordpress_data:
+  db_data:
+  redis_data:
+
+networks:
+  eduforge_net:
+    driver: bridge
