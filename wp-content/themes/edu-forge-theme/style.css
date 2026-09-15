@@ -1,0 +1,111 @@
+/*
+Theme Name:        EduForge360 Theme
+Theme URI:         https://github.com/kriss2012/EduForge360
+Author:            EduForge360 Engineering
+Author URI:        https://eduforge360.edu
+Description:       Industrial-level WordPress Theme for Student Development, LMS, Skill Tracking, Assessments, and Placement Preparation.
+Version:           1.0.0
+Tested up to:      6.7
+Requires at least: 6.0
+Requires PHP:      8.0
+License:           GNU General Public License v2 or later
+License URI:       http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain:       eduforge360
+Tags:              education, learning-management-system, e-commerce, custom-menu, featured-images, full-width-template, theme-options
+*/
+
+/* ==========================================================================
+   CSS DESIGN SYSTEM & TOKENS
+   ========================================================================== */
+:root {
+	/* Color Palette */
+	--primary: #2563eb;
+	--primary-dark: #1d4ed8;
+	--primary-light: #dbeafe;
+	--primary-glow: rgba(37, 99, 235, 0.15);
+	
+	--secondary: #0f172a;
+	--secondary-light: #1e293b;
+	--accent: #f59e0b;
+	
+	--success: #10b981;
+	--success-bg: #ecfdf5;
+	--warning: #f59e0b;
+	--warning-bg: #fffbeb;
+	--danger: #ef4444;
+	--danger-bg: #fef2f2;
+	
+	/* Neutrals & Surfaces */
+	--bg-body: #f8fafc;
+	--bg-surface: #ffffff;
+	--bg-surface-elevated: #ffffff;
+	--border-subtle: #e2e8f0;
+	--border-strong: #cbd5e1;
+	
+	/* Typography Colors */
+	--text-primary: #0f172a;
+	--text-secondary: #475569;
+	--text-muted: #64748b;
+	--text-inverse: #ffffff;
+	
+	/* Layout & Spacing */
+	--container-max: 1280px;
+	--container-narrow: 900px;
+	--radius-sm: 6px;
+	--radius-md: 10px;
+	--radius-lg: 16px;
+	--radius-full: 9999px;
+	
+	/* Shadows */
+	--shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+	--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+	--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+	--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+	/* Transitions */
+	--transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+	--transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Reset & Typography */
+*, *::before, *::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+	background-color: var(--bg-body);
+	color: var(--text-primary);
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	color: var(--primary);
+	text-decoration: none;
+	transition: color var(--transition-fast);
+}
+
+a:hover {
+	color: var(--primary-dark);
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+button, input, select, textarea {
+	font: inherit;
+}
+
+.container {
+	width: 100%;
+	max-width: var(--container-max);
+	margin: 0 auto;
+	padding: 0 24px;
+}
