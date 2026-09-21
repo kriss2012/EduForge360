@@ -26,3 +26,12 @@ vendor/
 
 # OS files
 desktop.ini
+
+# Standards & hygiene
+.env.*.local
+*.pem
+*.key
+npm-debug.log*
+yarn-debug.log*
+dist/
+build/
